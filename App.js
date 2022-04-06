@@ -1,6 +1,8 @@
 import { View, Text } from "react-native";
-
+import LandingPage from "./components/StudentList"
+// import Signin from "./components/SignIn.js"
 export default function App() {
+ 
   return (
     <View
       style={{
@@ -9,7 +11,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Text>Universal React with Expo</Text>
+      <LandingPage />
     </View>
   );
 }
