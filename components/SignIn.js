@@ -1,95 +1,35 @@
-// import { StatusBar } from "expo-status-bar";
-// import React, { useState } from "react";
-// import {
-//     StyleSheet,
-//     Text,
-//     View,
-//     Image,
-//     TextInput,
-//     Button,
-//     TouchableOpacity,
-// } from "react-native";
+import React, { useState } from 'react';
+import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
-// export default function App() {
-//     const [email, setEmail] = useState("");
-//     const [password, setPassword] = useState("");
+const App = () => {
+    const [currency, setCurrency] = useState('US Dollar');
+    return (
+        <View >
+            <Text > Demo Form </Text>
+            <View>
+                <TextInput
+                    placeholder="Email" />
+                <TextInput
+                    secureTextEntry={true}
+                    placeholder="Password"
+                />
+                <Picker
+                    selectedValue={currency}
+                    onValueChange={currentCurrency => setCurrency(currentCurrency)}>
+                    <Picker.Item label="USD" value="US Dollars" />
+                    <Picker.Item label="EUR" value="Euro" />
+                    <Picker.Item label="NGN" value="Naira" />
+                </Picker>
+                <Text>
+                    Selected: {currency}
+                </Text>
+            </View>
+        </View>
+    );
+};
+const styles = StyleSheet.create({
+    //Check project repo for styles
+});
 
-//     return (
-//         <View style={styles.container}>
-//             <Image style={styles.image} source={require("../assets/download.jpg")} />
-
-//             <StatusBar style="auto" />
-//             <View style={styles.inputView}>
-//                 <TextInput
-//                     style={styles.TextInput}
-//                     placeholder="Email."
-//                     placeholderTextColor="#003f5c"
-//                     onChangeText={(email) => setEmail(email)}
-//                 />
-//             </View>
-
-//             <View style={styles.inputView}>
-//                 <TextInput
-//                     style={styles.TextInput}
-//                     placeholder="Password."
-//                     placeholderTextColor="#003f5c"
-//                     secureTextEntry={true}
-//                     onChangeText={(password) => setPassword(password)}
-//                 />
-//             </View>
-
-//             <TouchableOpacity>
-//                 <Text style={styles.forgot_button}>Forgot Password?</Text>
-//             </TouchableOpacity>
-
-//             <TouchableOpacity style={styles.loginBtn}>
-//                 <Text style={styles.loginText}>LOGIN</Text>
-//             </TouchableOpacity>
-//         </View>
-//     );
-// }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: "#fff",
-//         alignItems: "center",
-//         justifyContent: "center",
-//     },
-
-//     image: {
-//         marginBottom: 40,
-//     },
-
-//     inputView: {
-//         backgroundColor: "#FFC0CB",
-//         borderRadius: 30,
-//         width: "70%",
-//         height: 45,
-//         marginBottom: 20,
-
-//         alignItems: "center",
-//     },
-
-//     TextInput: {
-//         height: 50,
-//         flex: 1,
-//         padding: 10,
-//         marginLeft: 20,
-//     },
-
-//     forgot_button: {
-//         height: 30,
-//         marginBottom: 30,
-//     },
-
-//     loginBtn: {
-//         width: "80%",
-//         borderRadius: 25,
-//         height: 50,
-//         alignItems: "center",
-//         justifyContent: "center",
-//         marginTop: 40,
-//         backgroundColor: "#FF1493",
-//     },
-// });
+export default App;
